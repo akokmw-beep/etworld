@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="am">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title data-id="th-modified">ETWorld 🌍</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050505;color:#fff;font-family:Arial,"Noto Sans Ethiopic",sans-serif}
+button,input,textarea{font:inherit}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:82px}
+.header{height:72px;background:#18191e;display:flex;align-items:center;padding:0 20px;font-size:27px;font-weight:800}.back{margin-right:20px;font-size:32px}
+.top{padding:28px 20px 14px;display:flex;align-items:center;gap:15px}.logo{width:68px;height:68px;border-radius:50%;background:#19e990;color:#062016;display:grid;place-items:center;font-size:27px;font-weight:900}.title{font-size:29px;font-weight:800}.sub{color:#9ca3af;margin-top:5px}
+.tabs{display:flex;gap:14px;overflow-x:auto;padding:14px 20px}.tab{min-width:190px;height:145px;border:1px solid #292929;border-radius:20px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:20px;font-weight:800}.tab span{font-size:48px;margin-bottom:10px}
+.hero{margin:8px 20px 20px;padding:26px;border-radius:25px;background:linear-gradient(135deg,#063321,#0b1c14);min-height:205px}.hero h1{font-size:28px;margin:0 0 14px;line-height:1.35}.hero p{font-size:18px;color:#c0c9c4;line-height:1.55}.green{background:#19e990;color:#03150d;border:0;border-radius:15px;padding:14px 23px;font-weight:800;cursor:pointer}
+.search{margin:0 20px 25px;border:1px solid #292929;border-radius:15px;padding:15px 17px;background:#070707;display:flex;gap:10px;align-items:center}.search input{background:transparent;border:0;outline:0;color:#fff;width:100%;font-size:18px}
+.section{padding:8px 20px;font-size:23px;font-weight:900}.row{display:flex;gap:14px;overflow-x:auto;padding:14px 20px 25px}.post{min-width:230px;background:#111;border:1px solid #252525;border-radius:16px;overflow:hidden}.postimg{height:145px;background:linear-gradient(135deg,#253647,#102119);display:grid;place-items:center;font-size:55px}.postbody{padding:13px}.postbody h3{margin:0 0 7px;font-size:18px}.postbody p{color:#b5b5b5;margin:0 0 12px;line-height:1.4}.actions{display:flex;justify-content:space-between;align-items:center;color:#aaa}.actions button{background:none;border:0;color:#aaa;cursor:pointer;font-size:16px}.actions .liked{color:#19e990}.author{color:#19e990;font-size:13px}
+.panel{margin:8px 20px 24px;background:#0e0e0e;border:1px solid #292929;border-radius:18px;padding:18px}.panel h2{margin-top:0}.panel input,.panel textarea{width:100%;background:#050505;color:#fff;border:1px solid #333;border-radius:10px;padding:12px;margin:7px 0 10px;outline:0}.panel textarea{min-height:95px;resize:vertical}.hidden{display:none}.fullpost{margin:10px 20px;background:#101010;border:1px solid #282828;border-radius:16px;overflow:hidden}.fullpost .postbody{padding:16px}.fullpost .postimg{height:210px}
+.profile{text-align:center}.avatar{width:75px;height:75px;border-radius:50%;background:#19e990;color:#052016;display:grid;place-items:center;font-size:30px;font-weight:900;margin:auto}.follow{margin-top:12px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#0b0b0b;border-top:1px solid #292929;z-index:10}.nav{width:min(760px,100%);margin:auto;display:flex;justify-content:space-around;padding:9px 3px 8px}.nav button{background:none;border:0;color:#777;cursor:pointer;text-align:center;font-size:12px}.nav button span{display:block;font-size:24px;margin-bottom:3px}.nav .active{color:#19e990}
+.empty{color:#888;padding:10px 20px 25px}.notice{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#19e990;color:#03150d;padding:10px 16px;border-radius:10px;font-weight:700;display:none;z-index:20}
+.filepick{display:block;width:100%;padding:14px;border:1px dashed #3b3b3b;border-radius:12px;background:#080808;color:#bbb;margin:8px 0 12px;cursor:pointer}
+.filepick input,.camera input{display:none}.preview{width:100%;max-height:240px;object-fit:cover;border-radius:12px;margin:5px 0 10px;display:none}
+.profile-photo{position:relative;width:95px;height:95px;margin:auto}.profile-photo .avatar{width:95px;height:95px}.camera{position:absolute;right:-2px;bottom:-2px;width:34px;height:34px;border-radius:50%;background:#19e990;color:#03150d;display:grid;place-items:center;border:3px solid #0e0e0e;cursor:pointer}
+.postimg img{width:100%;height:100%;object-fit:cover}
+
+.password-modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.password-box{width:min(420px,100%);background:#111;border:1px solid #333;border-radius:20px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.password-box h2{margin:0 0 10px}.password-box p{color:#aaa;line-height:1.5}.password-box input{width:100%;background:#050505;color:#fff;border:1px solid #333;border-radius:10px;padding:13px;margin:8px 0 12px;outline:0}
+.password-error{color:#ff6b6b;min-height:20px;margin-bottom:8px}
+</style>
+<meta property="og:title" content="ETWorld 🌍" data-id="th-modified" ><meta name="description" content="index" data-id="th-modified" ><meta property="og:description" content="index" data-id="th-modified" ><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified" ><meta property="og:image:width" content="1501" data-id="th-modified" ><meta property="og:image:height" content="1501" data-id="th-modified" ><meta property="og:image:type" content="image/png" data-id="th-modified" ><meta property="og:url" content="https://etworld.tiiny.site/" data-id="th-modified" ><meta property="og:type" content="website" data-id="th-modified" ><script defer data-domain="etworld.tiiny.site" src="https://analytics.tiiny.net/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+<body>
+<div class="app">
+<header class="header"><span class="back">‹</span> ETWorld</header>
+
+<section id="home">
+<div class="top"><div class="logo">ET</div><div><div class="title">ETWorld 🌍</div><div class="sub">Education • Memes • News</div></div></div>
+
+<div class="tabs">
+<div class="tab" onclick="showSection('education')"><span>📚</span>Education</div>
+<div class="tab" onclick="showSection('memes')"><span>😂</span>Memes</div>
+<div class="tab" onclick="showSection('newposts')"><span>📰</span>New Posts</div>
+</div>
+
+<div class="hero"><h1>እንኳን ወደ ETWorld በደህና መጡ!</h1><p>የትምህርት መረጃ፣ Memes እና አዳዲስ ጽሁፎችን እዚህ ያግኙ።</p><button class="green" onclick="requestPostAccess()">Post ማድረግ</button></div>
+
+<div class="search"><span>🔍</span><input id="search" placeholder="ፈልግ..." oninput="searchPosts()"></div>
+
+<div class="section">📚 የትምህርት መረጃ</div><div class="row" id="educationRow"></div>
+<div class="section">😂 Latest Memes</div><div class="row" id="memesRow"></div>
+<div class="section">📰 አዳዲስ Posts</div><div id="newposts"></div>
+</section>
+
+<section id="education" class="hidden"><div class="section">📚 Education</div><div id="educationAll"></div></section>
+<section id="memes" class="hidden"><div class="section">😂 Memes</div><div id="memesAll"></div></section>
+
+<section id="profile" class="hidden">
+<div class="panel profile"><div class="profile-photo"><div class="avatar" id="avatarBox">ET</div><label class="camera">📷<input id="profileFile" type="file" accept="image/*" onchange="setProfilePhoto(event)"></label></div><h2 id="profileName">ETWorld User</h2><p id="followCount">Following: 0</p><button class="green" onclick="requestPostAccess()">＋ New Post</button></div>
+</section>
+
+<div id="postPanel" class="panel hidden">
+<h2>✍️ New Post</h2>
+<input id="postTitle" placeholder="የPost ርዕስ">
+<textarea id="postText" placeholder="መልዕክትህን እዚህ ጻፍ..."></textarea>
+<label class="filepick">📷 ፎቶ ከስልክህ ላይ ምረጥ
+<input id="postImageFile" type="file" accept="image/*" onchange="previewPostImage(event)">
+</label>
+<img id="postPreview" class="preview">
+<input id="postImage" placeholder="ወይም የምስል URL (ካለ)">
+<select id="postType" style="width:100%;padding:12px;background:#050505;color:#fff;border:1px solid #333;border-radius:10px">
+<option value="education">📚 Education</option><option value="meme">😂 Meme</option><option value="news">📰 News</option>
+</select>
+<button class="green" onclick="createPost()">Publish</button>
+<button style="background:#333;color:#fff;border:0;border-radius:10px;padding:12px;margin-left:6px" onclick="closePost()">Cancel</button>
+</div>
+
+<div class="bottom"><nav class="nav">
+<button class="active" onclick="showSection('home',this)"><span>⌂</span>Home</button>
+<button onclick="showSection('education',this)"><span>📚</span>Education</button>
+<button onclick="showSection('memes',this)"><span>😂</span>Memes</button>
+<button onclick="showSection('profile',this)"><span>👤</span>Profile</button>
+</nav></div>
+
+<div id="passwordModal" class="password-modal">
+  <div class="password-box">
+    <h2>🔐 Post Access</h2>
+    <p>Sorry, you need to be one of the 50 people to post.</p>
+    <input id="postPassword" type="password" placeholder="Password">
+    <div id="passwordError" class="password-error"></div>
+    <button class="green" onclick="checkPostPassword()">Continue</button>
+    <button style="background:#333;color:#fff;border:0;border-radius:10px;padding:12px;margin-left:6px" onclick="closePasswordModal()">Cancel</button>
+  </div>
+</div>
+
+<div id="notice" class="notice"></div>
+</div>
+
+<script>
+const key='etworld_posts_v2', followKey='etworld_follows_v2';
+let posts=JSON.parse(localStorage.getItem(key)||'null')||[
+{id:1,title:'የዛሬ ትምህርታዊ መረጃ',text:'አዲስ እውቀት እና ጠቃሚ የትምህርት ምክሮች።',type:'education',author:'ETWorld',likes:4},
+{id:2,title:'Study Tips',text:'ትምህርትህን በዕቅድ አጥና።',type:'education',author:'ETWorld',likes:8},
+{id:3,title:'😂 የዛሬ Meme',text:'አዝናኝ ይዘት።',type:'meme',author:'ETWorld',likes:12},
+{id:4,title:'🤣 Funny Meme',text:'ለጓደኞችህ አጋራ።',type:'meme',author:'ETWorld',likes:6}
+];
+let followed=JSON.parse(localStorage.getItem(followKey)||'[]');
+let profilePhoto=localStorage.getItem('etworld_profile_photo_v3')||'';
+const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function img(p){return p.image?`<img src="${esc(p.image)}" alt="post photo" onerror="this.style.display='none'">`:(p.type==='meme'?'😂':p.type==='education'?'📖':'📰')}
+function card(p){return `<article class="post"><div class="postimg">${img(p)}</div><div class="postbody"><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p><div class="actions"><span class="author">@${esc(p.author)}</span><button class="${p.liked?'liked':''}" onclick="likePost(${p.id})">♥ ${p.likes||0}</button><button onclick="follow('${esc(p.author)}')">Follow</button></div></div></article>`}
+function full(p){return `<article class="fullpost"><div class="postimg">${img(p)}</div><div class="postbody"><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p><div class="actions"><span class="author">@${esc(p.author)}</span><button class="${p.liked?'liked':''}" onclick="likePost(${p.id})">♥ ${p.likes||0}</button><button onclick="follow('${esc(p.author)}')">${followed.includes(p.author)?'Following ✓':'Follow'}</button></div></div></article>`}
+function render(){const e=posts.filter(p=>p.type==='education'),m=posts.filter(p=>p.type==='meme');
+if(profilePhoto)document.getElementById('avatarBox').innerHTML='<img src="'+esc(profilePhoto)+'" style="width:100%;height:100%;object-fit:cover;border-radius:50%" alt="PFP">';document.getElementById('educationRow').innerHTML=e.map(card).join('')||'<div class="empty">ምንም ፖስት የለም።</div>';document.getElementById('memesRow').innerHTML=m.map(card).join('')||'<div class="empty">ምንም Meme የለም።</div>';document.getElementById('newposts').innerHTML=posts.slice().reverse().map(full).join('');document.getElementById('educationAll').innerHTML=e.map(full).join('');document.getElementById('memesAll').innerHTML=m.map(full).join('');document.getElementById('followCount').textContent='Following: '+followed.length;searchPosts()}
+function likePost(id){let p=posts.find(x=>x.id===id);if(!p)return;p.liked=!p.liked;p.likes=Math.max(0,(p.likes||0)+(p.liked?1:-1));save();render()}
+function follow(name){if(followed.includes(name))followed=followed.filter(x=>x!==name);else followed.push(name);localStorage.setItem(followKey,JSON.stringify(followed));showNotice(followed.includes(name)?'Followed ✓':'Unfollowed');render()}
+function save(){localStorage.setItem(key,JSON.stringify(posts))}
+function openPost(){document.getElementById('postPanel').classList.remove('hidden');document.getElementById('postTitle').focus();window.scrollTo(0,document.body.scrollHeight)}
+function closePost(){document.getElementById('postPanel').classList.add('hidden')}
+function fileToDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+async function previewPostImage(e){const f=e.target.files[0];if(!f)return;const url=await fileToDataURL(f);const p=document.getElementById('postPreview');p.src=url;p.style.display='block';document.getElementById('postImage').value=''}
+async function setProfilePhoto(e){const f=e.target.files[0];if(!f)return;if(f.size>5*1024*1024){showNotice('ፎቶው ከ5MB በታች ይሁን');return}profilePhoto=await fileToDataURL(f);localStorage.setItem('etworld_profile_photo_v3',profilePhoto);render();showNotice('PFP ተቀይሯል ✓')}
+async function createPost(){let title=document.getElementById('postTitle').value.trim(),text=document.getElementById('postText').value.trim(),image=document.getElementById('postImage').value.trim(),file=document.getElementById('postImageFile').files[0],type=document.getElementById('postType').value;if(!title||!text){showNotice('ርዕስ እና መልዕክት ያስገቡ');return}if(file){if(file.size>7*1024*1024){showNotice('ፎቶው ከ7MB በታች ይሁን');return}image=await fileToDataURL(file)}posts.push({id:Date.now(),title,text,image,type,author:'You',likes:0});save();closePost();document.getElementById('postTitle').value='';document.getElementById('postText').value='';document.getElementById('postImage').value='';document.getElementById('postImageFile').value='';document.getElementById('postPreview').style.display='none';render();showSection('home');showNotice('Post ተለቀቀ ✓')}
+function searchPosts(){let q=document.getElementById('search').value.toLowerCase();let found=posts.filter(p=>(p.title+' '+p.text+' '+p.author).toLowerCase().includes(q));if(q)document.getElementById('newposts').innerHTML=found.map(full).join('')||'<div class="empty">የፈለጉት አልተገኘም።</div>'}
+function showSection(id,btn){['home','education','memes','profile'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo(0,0)}
+function showNotice(t){let n=document.getElementById('notice');n.textContent=t;n.style.display='block';setTimeout(()=>n.style.display='none',1600)}
+
+const POST_PASSWORD = 'ETworldFOX';
+function requestPostAccess(){
+  document.getElementById('passwordError').textContent='';
+  document.getElementById('postPassword').value='';
+  document.getElementById('passwordModal').style.display='flex';
+  setTimeout(()=>document.getElementById('postPassword').focus(),50);
+}
+function closePasswordModal(){document.getElementById('passwordModal').style.display='none'}
+function checkPostPassword(){
+  const v=document.getElementById('postPassword').value;
+  if(v===POST_PASSWORD){
+    closePasswordModal();
+    openPost();
+  }else{
+    document.getElementById('passwordError').textContent='Incorrect password ❌';
+  }
+}
+document.getElementById('postPassword').addEventListener('keydown',e=>{
+  if(e.key==='Enter') checkPostPassword();
+});
+
+render();
+</script>
+</body>
+</html>
